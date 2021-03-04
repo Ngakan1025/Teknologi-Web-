@@ -61,7 +61,7 @@
   </div>
 </div>
 
-<div class="container" style="background-color: cornsilk; float: left; width: 725px; height: 1450px; margin: 15px;">
+<div class="container" style="background-color: cornsilk; float: left; width: 630px; margin: 15px;">
     <h1><small>Keindahan Pantai Lebih</small></h1>
     <h3><small>Menikmati kawasan pesisir pantai Bali, anda bisa coba ketenangan di pantai Lebih, lokasinya di sebelah Selatan ibu kota Gianyar. Pasir pantainya berwarna hitam berkilau, terlihat beda dengan pesisir pantai bagian Selatan seperti Kuta, Dreamland ataupun Tanjung Benoa yang didominasi oleh panati berpasir putih. Walaupun pantai Lebih ini berpasir hitam, namun demikian pesonanya juga tidak bisa dipandang sebelah mata saja, hamparan pantainya membentang dari Timur ke Barat sekitar 1.8 km, air lautnya berwarna biru jernih di hadapan pantai di ujung Selatan terlihat dataran pulau Nusa Penida.</small></h3>
     <img src="media/PantaiLebih.png" class="img-thumbnail" alt="Cinque Terre" width="608" height="472"> 
@@ -72,7 +72,7 @@
     <img src="media/sate.png" class="img-thumbnail" alt="Cinque Terre" width="608" height="472">
 </div>
 
-<div class="col-lg-4  "  style="background-color:  aliceblue; float: right; width: 350px; margin: 15px;"> 
+<div class="col-lg-4  "  style="background-color:  aliceblue; float: right; width: 450px; margin: 15px;"> 
     <div  class="widget  ">
         <h2>Terpopular</h2>
         <ul  class="menusidebar  ">
@@ -81,25 +81,105 @@
             <li><a  href="  ">Rencana Pelantikan Gibran</a></li>
             <li><a  href="  ">Penggunaan Tali Masker Dinilai Berbahaya</a></li>
         </ul>
-
-    <h2>Leave a Reply</h2>
-  <form>
-    <div class="form-group">
-      <label for="usr">Username:</label>
-      <input type="text" class="form" id="usr">
+  <div class="container ">    
+      <div class="content">
+        <div class="col-lg-8 bg-info" style="background-color: skyblue; width: 390px">
+          <h2>Leave a Reply</h2>   
+          <hr>
+          <p>Alamat email anda tidak akan dipublikasikan</p>
+          <form class=" form-horizontal " action=" ">
+            <div class="form-group ">
+              <label class="control-label col-sm-3 ">Nama:</label>
+              <div class="col-sm-9 ">
+                  <input type="text" class="form- control " required placeholder="Masukkan Nama " name="nama ">
+              </div>
+            </div>
+            <div class="form-group ">
+              <label class="control-label col-sm-3 ">Email:</label>
+              <div class="col-sm-9 ">
+                <input type="email" class="form- control " placeholder="Email " name="email ">
+              </div>
+            </div>
+            <div class="form-group ">
+              <label class="control-label col-sm-3 ">Password:</label>
+              <div class="col-sm-9 ">
+                <input type="password" class="form- control psw " placeholder="Enter password ">
+              </div>
+            </div>
+            <div class="form-group ">
+              <label class="control-label col-sm-3 ">Re-Password:</label>
+              <div class="col-sm-9 ">
+                <input type="password" class="form- control repsw " placeholder="Enter password ">
+                <small class="errpsw "></small>
+              </div>
+            </div>
+            <div class="form-group ">
+              <label class="control-label col-sm-3 ">Comment:</label>
+              <div class="col-sm-9 ">
+                <textarea type="text" class="form- control " rows="3" required placeholder="Masukkan Komentar " name="comment "></textarea>
+              </div>
+            </div>
+            <div class="form-group ">
+              <div class="col-sm-offset-2 col-sm-9 ">
+                <div class="checkbox ">
+                  <label><input type="checkbox" name="remember "> Remember me</label>
+                </div>
+              </div>
+            </div>
+            <div class="form-group ">
+              <div class="col-sm-offset-3 col-sm-9 ">
+                <button type="submit " class="btn btn-default ">Submit</button>
+              </div>
+            </div>
+          </form>
+        </div>
     </div>
-    <div class="form-group">
-      <label for="pwd">Password:</label>
-      <input type="password" class="form" id="pwd">
+  </div>
+  <div id="myModal " class="modal fade " role="dialog ">
+    <div class="modal-dialog ">
+      <!-- Modal content-->
+      <div class="modal-content ">
+        <div class="modal-header ">
+          <button type="button " class="close " data- dismiss="modal ">&times;</button>
+          <h4 class="modal-title ">Berhasil</h4>
+        </div>
+        <div class="modal-body ">
+          <p></p>
+        </div>
+        <div class="modal-footer ">
+          <button type="button " class="btn btn-default " data- dismiss="modal ">Close</button>
+        </div>
+      </div>
     </div>
-    <form>
-    <div class="form-group">
-      <label for="comment">Comment:</label>
-      <textarea class="form" rows="5" id="comment"></textarea>
-    </div>
-  </form>
-    <p>copyright 2021</p>
+  </div>
+  <hr>
+  <p>copyright 2021</p>
 </div>
 
 </body>
+
+<script>
+  $(document).ready(function() {
+    $(".form-horizontal ").submit(function() {
+      var ps1 = $('.psw').val();
+      var ps2 = $('.repsw').val(); 
+      var valid = 0;
+      $('.err').html(''); 
+      if (ps1 == ps2) {
+        valid = 1;
+      } else {
+        $('.errpsw').html('Passsword Tidak Sama');
+      }
+      if (valid == 0) { 
+        event.preventDefault();
+      } else {
+        $('p').html("Kommentar Atas Nama " + $('input[name="nama "]').val() + " Berhasil Ditambahkan. Terima Kasih dan Dukung Terus Chanel Ini ");
+        $('.modal').modal('show'); 
+        event.preventDefault();
+      }
+    });
+  });
+</script>
+
+
 </html>
